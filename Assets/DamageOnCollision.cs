@@ -12,14 +12,5 @@ public class DamageOnCollision : MonoBehaviour
             coll.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
         }
     }
-
-    private void OnTriggerEnter(Collider coll)
-    {
-        if (coll.gameObject.CompareTag("Player"))
-        {
-            coll.gameObject.GetComponent<PlayerHealth>().TakeDamage(100);
-        }
-
-    }
     
 }
