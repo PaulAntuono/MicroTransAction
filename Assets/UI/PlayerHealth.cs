@@ -9,9 +9,12 @@ public class PlayerHealth : MonoBehaviour
 
     public float health;
     public float maxHealth;
+
+    public Vector3 startingposition;
     // Start is called before the first frame update
     void Start()
     {
+        startingposition = transform.position;
        health = maxHealth;
     }
 
@@ -19,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= amount;
         OnPlayerDamaged?.Invoke();
+        transform.position = startingposition;
     }
 
     // Update is called once per frame
