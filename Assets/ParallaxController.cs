@@ -17,7 +17,7 @@ public class ParallaxController : MonoBehaviour
 
     [Range(0.01f, 0.05f)]
 
-    public float parallaxSpeed;
+    private float parallaxSpeed = .018F;
 
     
     // Start is called before the first frame update
