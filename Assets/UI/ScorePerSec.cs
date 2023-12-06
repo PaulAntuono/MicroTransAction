@@ -14,6 +14,9 @@ public class ScorePerSec : MonoBehaviour
     void FixedUpdate()
     {
         ScoreValueText.text = ("Score: " + (int)scoreValue).ToString();
-        scoreValue += scorePerSec * Time.fixedDeltaTime;
+        //scoreValue += scorePerSec * Time.fixedDeltaTime;
     }
+
+
+
 }
