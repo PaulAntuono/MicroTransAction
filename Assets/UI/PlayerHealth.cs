@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,12 +11,14 @@ public class PlayerHealth : MonoBehaviour
 
     public float health;
     public float maxHealth;
+    
 
-    public Vector3 startingposition;
+    public static Vector3 startingposition;
     // Start is called before the first frame update
     void Start()
     {
-        startingposition = transform.position;
+        //DontDestroyOnLoad(gameObject);
+       startingposition = transform.position;
        health = maxHealth;
     }
 
@@ -25,9 +29,21 @@ public class PlayerHealth : MonoBehaviour
         transform.position = startingposition;
     }
 
+    public void resetPlayerPos()
+    {
+        transform.position = startingposition;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0)
+        {
+            transform.position = startingposition;
+            ScorePerSec.scoreValue = ScorePerSec.finalScore;
+            ScorePerSec.scoreValue = 0;
+
+        }
     }
 }

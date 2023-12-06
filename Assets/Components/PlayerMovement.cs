@@ -17,8 +17,36 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 originalScale; // Store the original scale
     private float crouchTimer;
 
+    // Declare a static instance variable to hold the singleton instance
+    private static PlayerMovement _instance;
+
+    // Declare a public property to access the singleton instance
+    public static PlayerMovement Instance
+    {
+        get { return _instance; }
+    }
+
+   
+
+    private void Awake()
+    {
+        // Check if an instance already exists
+        if (_instance == null)
+        {
+            // If not, set the instance to this object
+            _instance = this;
+            // Make sure the object persists between scenes
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
+        //DontDestroyOnLoad(gameObject);
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale; // Store the original scale at the start
         isCrouching = false; // Initialize isCrouching to false
