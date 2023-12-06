@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -35,15 +36,25 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    public void Gameover()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (health <= 0)
         {
             transform.position = startingposition;
-            ScorePerSec.scoreValue = ScorePerSec.finalScore;
+            Debug.Log(ScorePerSec.scoreValue);
+            ScorePerSec.finalScore = ScorePerSec.scoreValue;
+            Debug.Log(ScorePerSec.scoreValue);
+            Debug.Log(ScorePerSec.finalScore);
             ScorePerSec.scoreValue = 0;
-
+            Gameover();
+            health = maxHealth;
+            Debug.Log(ScorePerSec.finalScore);
         }
     }
 }
