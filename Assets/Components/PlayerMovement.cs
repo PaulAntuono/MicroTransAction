@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         get { return _instance; }
     }
 
-   
+
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            
+
             Destroy(gameObject);
         }
     }
