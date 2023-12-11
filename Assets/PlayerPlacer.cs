@@ -10,6 +10,9 @@ public class PlayerPlacer : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         player.transform.position = startPos;
+        PlayerHealth health = player.GetComponent<PlayerHealth>();
+        health.health = 6;
+
     }
 
 
