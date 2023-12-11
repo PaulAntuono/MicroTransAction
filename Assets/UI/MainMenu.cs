@@ -15,6 +15,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void GoLevelOne()
+    {
+        SceneManager.LoadScene("FirstScene");
+    }
+
+
     public void Quit()
     {
         Application.Quit();
