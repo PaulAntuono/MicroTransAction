@@ -35,6 +35,11 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     public void LoadMenuScene()
     {
         Resume();
